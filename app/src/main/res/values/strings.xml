@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">tenant finder</string>
+    <string name="userid_txt">E-mail</string>
+    <string name="password_txt">Password</string>
+    <string name="signin_txt">Sign In</string>
+    <string name="newuser_txt">New User? Sign Up</string>
+    <string name="firstname_txt">First Name</string>
+    <string name="lastname_txt">Last Name</string>
+    <string name="email_txt">E-mail</string>
+    <string name="phoneno._txt">Phone No.</string>
+    <string name="signup_txt">Sign Up</string>
+    <string name="confpass_txt">Confirm-Password</string>
+    <string name="alreadyuser_txt">Already a User? Sign In</string>
+    <string name="hometxt">Home</string>
+    <string name="mypropertiestxt">My Property</string>
+    <string name="profiletxt">My Profile</string>
+    <string name="foregetpass_txt">Forget Password?</string>
+    <string name="hello_blank_fragment">Hello</string>
+    <string name="signoutbtn">Sign out</string>
+</resources>
