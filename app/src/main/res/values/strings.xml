@@ -17,4 +17,8 @@
     <string name="foregetpass_txt">Forget Password?</string>
     <string name="hello_blank_fragment">Hello</string>
     <string name="signoutbtn">Sign out</string>
+    <string name="fullname">Full Name : </string>
+    <string name="emailprf">E-Mail : </string>
+    <string name="phoneprf">Phone No. : </string>
+
 </resources>

@@ -14,18 +14,23 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
+//
+//import com.google.android.gms.tasks.OnCompleteListener;
+//import com.google.android.gms.tasks.Task;
+//import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Objects;
 
 public class Sign_Up extends AppCompatActivity {
 
     private TextView email, newpass, confpass;
-    private Button signupbtn;
     private FirebaseAuth myAuth;
+    private TextView fname, lname, phone;
+    FirebaseFirestore fstore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,18 +54,17 @@ public class Sign_Up extends AppCompatActivity {
         textView.setMovementMethod(LinkMovementMethod.getInstance());
 
         myAuth = FirebaseAuth.getInstance();
-
         email = findViewById(R.id.newemail);
         newpass = findViewById(R.id.newpassview);
         confpass = findViewById(R.id.confpassview);
-        signupbtn = findViewById(R.id.signupbtnview);
+        Button signupbtn = findViewById(R.id.signupbtnview);
+        fname = findViewById(R.id.firstnameview);
+        lname = findViewById(R.id.lastnameview);
+        phone = findViewById(R.id.newphoneview);
+        fstore = FirebaseFirestore.getInstance();
 
-        signupbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                signup();
-            }
-        });
+
+        signupbtn.setOnClickListener(view -> signup());
         }
 
     public void Go_back_login(){
@@ -69,29 +73,61 @@ public class Sign_Up extends AppCompatActivity {
 
 
     private void signup(){
-        String User = email.getText().toString().trim();
-        String Password = newpass.getText().toString().trim();
-        String ConfPass = confpass.getText().toString().trim();
+        String Email = email.getText().toString().trim();
+        String Newpass = newpass.getText().toString().trim();
+        String Confpass = confpass.getText().toString().trim();
+        String Fname = fname.getText().toString();
+        String Lname = lname.getText().toString();
+        String Phone = phone.getText().toString();
+        final String[] userID = new String[1];
 
-        if(User.isEmpty()){
+        //**** SET THE LENGTH OF THE STRING****
+
+        if(Fname.isEmpty()){
+            fname.setError("First Name required");
+        }
+        if(Lname.isEmpty()){
+            lname.setError("Last Name required");
+        }
+        if(Phone.isEmpty()){
+            phone.setError("Phone No. required");
+        }
+        if(Phone.length() != 10){
+            phone.setError("Enter a valid No.");
+        }
+        if(Email.isEmpty()){
             email.setError("E-mail required");
         }
-        if(Password.isEmpty()){
+        if(Newpass.isEmpty()){
             newpass.setError("Password required");
         }
-        if (ConfPass.isEmpty()){
+        if(Newpass.length()<6){
+            newpass.setError("Password must contain 6 characters");
+        }
+        if (Confpass.isEmpty()){
             confpass.setError("Re-Enter Password");
         }
 
-        // *********************CREATE A COMPARE IF STATMENT BETWEEN PASSWORD AND CONFIRM PASSWORD
+
+        // *** CREATE A IF STATMNET FOR VERIFYING THE PASSWORD
+//        else if (Newpass!=Confpass){
+//            confpass.setError("Password doesn't match");
+//        }
 
         else {
-            myAuth.createUserWithEmailAndPassword(User, Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()){
-                        startActivity(new Intent(Sign_Up.this, MainActivity.class));
-                    }
+            myAuth.createUserWithEmailAndPassword(Email, Newpass).addOnCompleteListener(task -> {
+                if (task.isSuccessful()){
+                    Toast.makeText(Sign_Up.this, "Signed Up succesfully", Toast.LENGTH_LONG).show();
+                    userID[0] = Objects.requireNonNull(myAuth.getCurrentUser()).getUid();
+                    DocumentReference documentReference = fstore.collection("Users").document(userID[0]);
+                    Map<String, Object> user = new HashMap<>();
+                    user.put("first_name", Fname);
+                    user.put("last_name", Lname);
+                    user.put("email", Email);
+                    user.put("phone_no.", Phone);
+                    user.put("Password", Newpass);
+                    documentReference.set(user);
+                    startActivity(new Intent(Sign_Up.this, MainActivity.class));
                 }
             });
         }

@@ -68,6 +68,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void onStart(){
+        super.onStart();
+        FirebaseUser current = myAuth.getCurrentUser();
+        if (current != null){
+            myAuth.getCurrentUser().reload();
+        }
+    }
+
 
     private void login(){
         String User = email.getText().toString().trim();
@@ -86,11 +94,11 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, Home.class));
                     }
                     else{
-                        Toast.makeText(MainActivity.this, "Incorrect E-mail and password", (Toast.LENGTH_LONG));
+                        Toast.makeText(MainActivity.this, "Incorrect E-mail and password", (Toast.LENGTH_LONG)).show();
                     }
                 }
             });
-        };
+        }
     }
 
 
