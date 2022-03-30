@@ -20,5 +20,10 @@
     <string name="fullname">Full Name : </string>
     <string name="emailprf">E-Mail : </string>
     <string name="phoneprf">Phone No. : </string>
-
+    <string name="updatetxt">Update</string>
+    <string name="myprofiletxt">My Profile</string>
+    <string name="fstname">First Name : </string>
+    <string name="lstname">Last Name : </string>
+    <string name="eml">Email : </string>
+    <string name="phn">Phone No. : </string>
 </resources>

@@ -124,7 +124,7 @@ public class Sign_Up extends AppCompatActivity {
                     user.put("first_name", Fname);
                     user.put("last_name", Lname);
                     user.put("email", Email);
-                    user.put("phone_no.", Phone);
+                    user.put("phone_no", Phone);
                     user.put("Password", Newpass);
                     documentReference.set(user);
                     startActivity(new Intent(Sign_Up.this, MainActivity.class));
