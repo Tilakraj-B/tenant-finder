@@ -26,4 +26,9 @@
     <string name="lstname">Last Name : </string>
     <string name="eml">Email : </string>
     <string name="phn">Phone No. : </string>
+    <string name="fgtpass">Forget Password ?</string>
+    <string name="description">Description : </string>
+    <string name="adrs">Address : </string>
+    <string name="contact_details">Contact Details : </string>
+    <string name="add_prop">Add Property</string>
 </resources>

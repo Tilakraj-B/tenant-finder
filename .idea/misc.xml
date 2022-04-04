@@ -3,14 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/layout-land/activity_main.xml" value="0.41354166666666664" />
+        <entry key="app/src/main/res/layout/activity_add_property.xml" value="0.37400970458984373" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.3098958333333333" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.26481481481481484" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_update_profile.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2832417805989583" />
-        <entry key="app/src/main/res/layout/fragment_my_property.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/fragment_my_property.xml" value="0.27790425618489584" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.3721341814313617" />
+        <entry key="app/src/main/res/layout/recycler_property.xml" value="0.25258941650390626" />
+        <entry key="app/src/main/res/menu/button_nav_menu.xml" value="0.3098958333333333" />
       </map>
     </option>
   </component>
