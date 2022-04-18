@@ -3,18 +3,47 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/button.xml" value="0.1285" />
+        <entry key="app/src/main/res/drawable/custom_input.xml" value="0.172" />
+        <entry key="app/src/main/res/drawable/email_selector.xml" value="0.21" />
+        <entry key="app/src/main/res/drawable/float_button.xml" value="0.173" />
+        <entry key="app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.21" />
+        <entry key="app/src/main/res/drawable/ic_baseline_add_business_24.xml" value="0.21" />
+        <entry key="app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.21" />
+        <entry key="app/src/main/res/drawable/ic_baseline_email_24_focused.xml" value="0.21" />
+        <entry key="app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.21" />
+        <entry key="app/src/main/res/drawable/ic_baseline_lock_24_focused.xml" value="0.173" />
+        <entry key="app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.173" />
+        <entry key="app/src/main/res/drawable/ic_home_background.xml" value="0.21" />
+        <entry key="app/src/main/res/drawable/ic_home_foreground.xml" value="0.21" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.21" />
+        <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.21" />
+        <entry key="app/src/main/res/drawable/image_circl.xml" value="0.21" />
+        <entry key="app/src/main/res/drawable/lock_selectore.xml" value="0.173" />
+        <entry key="app/src/main/res/drawable/properyt_description.xml" value="0.21" />
+        <entry key="app/src/main/res/drawable/round_corners.xml" value="0.21" />
+        <entry key="app/src/main/res/drawable/signin_waiting.xml" value="0.1285" />
+        <entry key="app/src/main/res/drawable/varient_fill.xml" value="0.21" />
         <entry key="app/src/main/res/layout-land/activity_main.xml" value="0.41354166666666664" />
-        <entry key="app/src/main/res/layout/activity_add_property.xml" value="0.37400970458984373" />
-        <entry key="app/src/main/res/layout/activity_home.xml" value="0.3098958333333333" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.26481481481481484" />
-        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_add_property.xml" value="0.1775283813476564" />
+        <entry key="app/src/main/res/layout/activity_forget_password.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.2598812234812769" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22989153180803568" />
+        <entry key="app/src/main/res/layout/activity_property_details.xml" value="0.23857421875000004" />
+        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_update_profile.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/edit_text.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/float_button.xml" value="0.25427350427350426" />
+        <entry key="app/src/main/res/layout/forgetpassword.xml" value="0.24188034188034188" />
         <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2832417805989583" />
-        <entry key="app/src/main/res/layout/fragment_my_property.xml" value="0.27790425618489584" />
-        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.3721341814313617" />
-        <entry key="app/src/main/res/layout/recycler_property.xml" value="0.25258941650390626" />
+        <entry key="app/src/main/res/layout/fragment_my_property.xml" value="0.14666666666666667" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.30487920740148533" />
+        <entry key="app/src/main/res/layout/progress_signin.xml" value="0.25427350427350426" />
+        <entry key="app/src/main/res/layout/property_details.xml" value="0.1979273739024105" />
+        <entry key="app/src/main/res/layout/recycler_property.xml" value="0.3201219512195122" />
         <entry key="app/src/main/res/menu/button_nav_menu.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_home_round.xml" value="0.2015" />
       </map>
     </option>
   </component>

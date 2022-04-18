@@ -1,118 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Sign_Up">
+    tools:context=".Sign_Up"
+    android:background="@drawable/back2">
 
-    <EditText
-        android:id="@+id/confpassview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:ems="10"
-        android:hint="@string/confpass_txt"
-        android:inputType="textPassword"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newpassview" />
+    <ImageButton
+        android:id="@+id/profileimage"
+        android:layout_width="150sp"
+        android:layout_height="150sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30sp"
+        android:src="@drawable/ic_baseline_person_24"
+        android:background="@drawable/round_corners"/>
 
     <EditText
         android:id="@+id/firstnameview"
-        android:layout_width="152dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/profileimage"
+        android:layout_marginTop="50sp"
         android:ems="10"
         android:hint="@string/firstname_txt"
         android:inputType="textPersonName"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.11" />
+        android:textSize="20sp"
+        android:background="@drawable/custom_input"
+        android:padding="10sp"/>
+
 
     <EditText
         android:id="@+id/lastnameview"
-        android:layout_width="152dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/firstnameview"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15sp"
         android:hint="@string/lastname_txt"
         android:inputType="textPersonName"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/newemail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        android:textSize="20sp"
+        android:ems="10"
+        android:background="@drawable/custom_input"
+        android:padding="10sp"
+        />
 
     <EditText
         android:id="@+id/newemail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:ems="10"
         android:hint="@string/email_txt"
-        android:textAlignment="center"
+        android:textSize="20sp"
         android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstnameview" />
-
-    <EditText
-        android:id="@+id/newphoneview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_below="@+id/lastnameview"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15sp"
         android:ems="10"
-        android:hint="@string/phoneno._txt"
-        android:inputType="phone"
-        android:maxLength="10"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newemail" />
-
-    <Button
-        android:id="@+id/signupbtnview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/signup_txt"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.721" />
+        android:background="@drawable/custom_input"
+        android:padding="10sp"
+        />
 
     <EditText
         android:id="@+id/newpassview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_below="@+id/newemail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15sp"
+        android:background="@drawable/custom_input"
         android:ems="10"
         android:hint="@string/password_txt"
         android:inputType="textPassword"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newphoneview" />
+        android:padding="10sp"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/confpassview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/newpassview"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15sp"
+        android:background="@drawable/custom_input"
+        android:ems="10"
+        android:hint="@string/confpass_txt"
+        android:inputType="textPassword"
+        android:padding="10sp"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/newphoneview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/confpassview"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15sp"
+        android:background="@drawable/custom_input"
+        android:ems="10"
+        android:hint="@string/phoneno._txt"
+        android:inputType="number"
+        android:padding="10sp"
+        android:textSize="20sp"
+        android:maxLength="10"/>
+
+    <Button
+        android:id="@+id/signupbtnview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/alreadyuser"
+        android:layout_marginBottom="30sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50sp"
+        android:text="@string/signup_txt" />
 
     <TextView
         android:id="@+id/alreadyuser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/alreadyuser_txt"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.917" />
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10sp"
+        android:text="@string/alreadyuser_txt" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</RelativeLayout>

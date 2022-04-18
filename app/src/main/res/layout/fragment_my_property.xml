@@ -8,21 +8,22 @@
     >
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mypRecycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/mypRecycler"
-
-        />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatbutton"
+        android:contentDescription="@string/add_prop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="20sp"
-        android:layout_marginBottom="20sp"
-        android:clickable="true" />
+        android:src="@drawable/ic_baseline_add_24"
+        android:clickable="true"
+        />
 
 </RelativeLayout>

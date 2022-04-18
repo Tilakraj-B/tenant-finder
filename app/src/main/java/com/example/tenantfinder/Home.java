@@ -19,6 +19,9 @@ public class Home extends AppCompatActivity implements NavigationBarView.OnItemS
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        if(getSupportActionBar() != null){
+            getSupportActionBar().hide();
+        }
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnItemSelectedListener(this);
         bottomNavigationView.setSelectedItemId(R.id.men_home);

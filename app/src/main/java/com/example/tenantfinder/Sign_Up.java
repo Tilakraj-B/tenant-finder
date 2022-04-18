@@ -1,3 +1,5 @@
+
+
 package com.example.tenantfinder;
 
 import androidx.annotation.NonNull;
@@ -10,6 +12,7 @@ import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -21,6 +24,7 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Objects;
@@ -37,14 +41,18 @@ public class Sign_Up extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
         TextView textView = findViewById(R.id.alreadyuser);
         String text = "Already a User? Sign In";
         SpannableString ss = new SpannableString(text);
         ForegroundColorSpan fcs = new ForegroundColorSpan(getColor(R.color.skyblue));
-        ClickableSpan clickableSpan= new ClickableSpan() {
+        ClickableSpan clickableSpan = new ClickableSpan() {
             @Override
             public void onClick(@NonNull View view) {
                 Go_back_login();
+                finish();
             }
         };
 
@@ -65,14 +73,14 @@ public class Sign_Up extends AppCompatActivity {
 
 
         signupbtn.setOnClickListener(view -> signup());
-        }
+    }
 
-    public void Go_back_login(){
+    public void Go_back_login() {
         startActivity(new Intent(this, MainActivity.class));
     }
 
 
-    private void signup(){
+    private void signup() {
         String Email = email.getText().toString().trim();
         String Newpass = newpass.getText().toString().trim();
         String Confpass = confpass.getText().toString().trim();
@@ -83,40 +91,34 @@ public class Sign_Up extends AppCompatActivity {
 
         //**** SET THE LENGTH OF THE STRING****
 
-        if(Fname.isEmpty()){
+        if (Fname.isEmpty()) {
             fname.setError("First Name required");
         }
-        if(Lname.isEmpty()){
+        if (Lname.isEmpty()) {
             lname.setError("Last Name required");
         }
-        if(Phone.isEmpty()){
+        if (Phone.isEmpty()) {
             phone.setError("Phone No. required");
         }
-        if(Phone.length() != 10){
+        if (Phone.length() != 10) {
             phone.setError("Enter a valid No.");
         }
-        if(Email.isEmpty()){
+        if (Email.isEmpty()) {
             email.setError("E-mail required");
         }
-        if(Newpass.isEmpty()){
+        if (Newpass.isEmpty()) {
             newpass.setError("Password required");
         }
-        if(Newpass.length()<6){
+        if (Newpass.length() < 6) {
             newpass.setError("Password must contain 6 characters");
         }
-        if (Confpass.isEmpty()){
+        if (Confpass.isEmpty()) {
             confpass.setError("Re-Enter Password");
-        }
-
-
-        // *** CREATE A IF STATMNET FOR VERIFYING THE PASSWORD
-//        else if (Newpass!=Confpass){
-//            confpass.setError("Password doesn't match");
-//        }
-
-        else {
+        } else if (!Newpass.equals(Confpass)) {
+            confpass.setError("Password doesn't match");
+        } else {
             myAuth.createUserWithEmailAndPassword(Email, Newpass).addOnCompleteListener(task -> {
-                if (task.isSuccessful()){
+                if (task.isSuccessful()) {
                     Toast.makeText(Sign_Up.this, "Signed Up succesfully", Toast.LENGTH_LONG).show();
                     userID[0] = Objects.requireNonNull(myAuth.getCurrentUser()).getUid();
                     DocumentReference documentReference = fstore.collection("Users").document(userID[0]);
@@ -125,9 +127,12 @@ public class Sign_Up extends AppCompatActivity {
                     user.put("last_name", Lname);
                     user.put("email", Email);
                     user.put("phone_no", Phone);
-                    user.put("Password", Newpass);
+                    user.put("password", Newpass);
                     documentReference.set(user);
+                    myAuth.signOut();
                     startActivity(new Intent(Sign_Up.this, MainActivity.class));
+                    finish();
+                    Log.d("tag", "signupinit");
                 }
             });
         }

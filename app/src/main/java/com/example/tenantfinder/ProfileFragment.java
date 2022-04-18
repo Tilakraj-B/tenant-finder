@@ -7,10 +7,16 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,8 +41,8 @@ public class ProfileFragment extends Fragment {
     private FirebaseFirestore fstore;
     private TextView fullname;
     private TextView email;
-    private TextView phone;
-    private Button updtbtn;
+    private TextView phone, editprf;
+    ProgressBar progressBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,24 +54,42 @@ public class ProfileFragment extends Fragment {
         fullname = v.findViewById(R.id.Ffullname);
         email = v.findViewById(R.id.Femail);
         phone = v.findViewById(R.id.Fphone);
-        String Uid = Objects.requireNonNull(myauth.getCurrentUser()).getUid();
-        DocumentReference drf = fstore.collection("Users").document(Uid);
-        updtbtn = v.findViewById(R.id.updtbtn);
+        DocumentReference drf = fstore.collection("Users").document(Objects.requireNonNull(myauth.getCurrentUser()).getUid());
+        editprf = v.findViewById(R.id.editprf);
+        progressBar = v.findViewById(R.id.progressbarprofile);
+
+        String text = editprf.getText().toString();
+        SpannableString spannableString = new SpannableString(text);
+        ClickableSpan cs = new ClickableSpan() {
+            @Override
+            public void onClick(@NonNull View view) {
+                startActivity(new Intent(v.getContext(), Update_Profile.class));
+            }
+        };
+        // Edit Profile
+        spannableString.setSpan(cs,0,12 , Spanned.SPAN_INCLUSIVE_INCLUSIVE );
+        editprf.setText(spannableString);
+        editprf.setMovementMethod(LinkMovementMethod.getInstance());
 
 
         Button signoutbtnview = v.findViewById(R.id.signoutbtnview);
         signoutbtnview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                progressBar.setVisibility(View.VISIBLE);
                 myauth.signOut();
                 Toast.makeText(v.getContext(), "Signed out", Toast.LENGTH_LONG).show();
                 startActivity(new Intent(v.getContext(), MainActivity.class));
+                Log.d("signout","signed out succesfully");
+                getActivity().finishAffinity();
+
             }
         });
 
         drf.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
+                progressBar.setVisibility(View.VISIBLE);
                 String f_name = documentSnapshot.getString("first_name");
                 String l_name = documentSnapshot.getString("last_name");
                 String full_name = f_name+" "+l_name;
@@ -76,13 +100,6 @@ public class ProfileFragment extends Fragment {
                 fullname.setText(full_name);
                 email.setText(emaildta);
                 phone.setText(phonedta);
-            }
-        });
-
-        updtbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(v.getContext(), Update_Profile.class));
             }
         });
 

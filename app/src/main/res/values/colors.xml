@@ -8,4 +8,14 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="skyblue">#2196F3</color>
+    <color name="lightpurple">#B188FA</color>
+
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimaryVariant">#466EFF</color>
+    <color name="colorOnPrimary">@color/white</color>
+    <!-- Secondary brand color. -->
+    <color name="colorSecondary">#03A9F4</color>
+    <color name="colorSecondaryVariant">#0073FF</color>
+    <color name="colorOnSecondary">@color/black</color>
+    <color name="background">#5386EC</color>
 </resources>

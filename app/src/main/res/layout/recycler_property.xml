@@ -6,117 +6,124 @@
     android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/recyclercardview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        app:cardCornerRadius="10dp">
+       android:layout_marginTop="10sp"
+        android:layout_marginEnd="10sp"
+        android:layout_marginStart="10sp"
+        android:layout_marginBottom="10sp"
+        app:cardCornerRadius="20sp"
+        android:clickable="true"
+        >
 
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@drawable/round_corners">
+
+            <TextView
+                android:id="@+id/noofbedH"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25sp"
+                android:layout_marginTop="10sp"
+                android:text="@string/noofbedroom"
+                android:textStyle="italic"
+                />
 
 
             <TextView
-                android:id="@+id/descview"
+                android:id="@+id/noofbed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:text="@string/description"
-                android:textSize="14dp"
-                android:textStyle="bold" />
+                android:layout_toRightOf="@id/noofbedH"
+                android:layout_marginStart="10sp"
+                android:layout_marginTop="10sp"
+                />
 
             <TextView
-                android:id="@+id/desc"
+                android:id="@+id/noofhallH"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/descview"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="5dp"
-                android:textSize="14dp" />
+                android:layout_toRightOf="@id/dividervertical"
+                android:layout_marginStart="25sp"
+                android:layout_marginTop="10sp"
+                android:text="@string/noofhall"
+                android:textStyle="italic" />
+            <TextView
+                android:id="@+id/noofhall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/noofhallH"
+                android:layout_marginStart="10sp"
+                android:layout_marginTop="10sp"
+
+                />
 
             <TextView
-                android:id="@+id/addressview"
+                android:id="@+id/noofkitH"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/desc"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_below="@+id/noofbedH"
+                android:layout_marginStart="25sp"
+                android:layout_marginTop="5sp"
+                android:layout_marginBottom="10sp"
+                android:text="@string/noofkitchen"
+                android:textStyle="italic"
+                />
+
+
+            <TextView
+                android:id="@+id/noofkit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/noofkitH"
+                android:layout_marginStart="10sp"
+                android:layout_marginTop="5sp"
+                android:layout_below="@+id/noofbed"
+                />
+            <TextView
+                android:id="@+id/addressH"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/noofkitH"
+                android:layout_marginTop="10sp"
+                android:layout_marginStart="25sp"
                 android:text="@string/adrs"
-                android:textSize="14dp"
-                android:textStyle="bold" />
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/addressview"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="5dp"
-                android:textSize="12dp" />
+                android:layout_below="@+id/addressH"
+                android:layout_marginStart="25sp"
+                android:layout_marginEnd="25sp"
+                android:layout_marginTop="5sp"
+                android:layout_marginBottom="25sp"
+                />
 
-            <TextView
-                android:id="@+id/contact_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/address"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:text="@string/contact_details"
-                android:textSize="14dp"
-                android:textStyle="bold" />
+            <View
+                android:id="@+id/dividervertical"
+                android:layout_width="1dp"
+                android:layout_height="50sp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_above="@+id/dividerhorizontal"
+                android:background="?android:attr/listDivider"
+                />
 
-            <TextView
-                android:id="@+id/contact_email_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/contact_view"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="5dp"
-                android:text="@string/eml"
-                android:textSize="12dp"
-                android:textStyle="italic" />
+            <View
+                android:id="@+id/dividerhorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/noofkitH"
+                android:background="?android:attr/listDivider" />
 
-            <TextView
-                android:id="@+id/contact_phone_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/contact_email_view"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="20dp"
-                android:text="@string/phoneprf"
-                android:textSize="12dp"
-                android:textStyle="italic" />
-
-            <TextView
-                android:id="@+id/contact_email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/contact_view"
-                android:layout_alignRight="@+id/contact_email_view"
-                android:layout_marginTop="5dp"
-                android:textSize="12dp"
-                android:textStyle="normal" />
-
-            <TextView
-                android:id="@+id/contact_phone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/contact_email_view"
-                android:layout_alignRight="@id/contact_phone_view"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="20dp"
-                android:textSize="12dp"
-                android:textStyle="normal" />
 
         </RelativeLayout>
 

@@ -1,99 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Update_Profile">
+    tools:context=".Update_Profile"
+    android:background="@color/background">
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/fstnameview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="56dp"
-        android:text="@string/phn"
+        android:text="@string/fstname"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <EditText
-        android:id="@+id/lastudt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="28dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/firstudt" />
+        android:layout_marginStart="25sp"
+        android:layout_above="@id/lstnameview"/>
 
     <EditText
         android:id="@+id/firstudt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="156dp"
-        android:layout_marginEnd="16dp"
+        android:layout_above="@id/lastudt"
+        android:layout_marginStart="10sp"
+        android:layout_marginEnd="25sp"
+        android:layout_toRightOf="@id/fstnameview"
+        android:background="@drawable/custom_input"
         android:ems="10"
         android:inputType="textPersonName"
+        android:padding="10sp"
+        android:textSize="20sp" />
+
+
+    <TextView
+        android:id="@+id/lstnameview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lstname"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginStart="25sp"
+        android:layout_marginTop="50sp"
+        android:layout_centerVertical="true"/>
+
+    <EditText
+        android:id="@+id/lastudt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10sp"
+        android:layout_marginTop="30sp"
+        android:layout_marginEnd="25sp"
+        android:layout_toRightOf="@id/lstnameview"
+        android:background="@drawable/custom_input"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:padding="10sp"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/phnnameview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/phn"
+        android:textSize="20sp"
+        android:layout_marginStart="25sp"
+        android:layout_marginTop="50sp"
+        android:layout_below="@id/lstnameview"/>
 
     <EditText
         android:id="@+id/phoneudt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:inputType="phone"
-        android:maxLength="10"
+        android:layout_toRightOf="@id/phnnameview"
+        android:layout_below="@+id/lastudt"
+        android:layout_marginTop="30sp"
+        android:layout_marginStart="10sp"
+        android:layout_marginEnd="25sp"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/lastudt" />
+        android:ems="10"
+        android:inputType="number"
+        android:background="@drawable/custom_input"
+        android:padding="10sp"
+        android:maxLength="10"/>
 
     <Button
         android:id="@+id/buttonupdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="269dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="50dp"
-        android:text="@string/updatetxt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneudt" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/phnnameview"
+        android:layout_marginTop="50sp"
+        android:text="@string/updatetxt"/>
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="164dp"
-        android:text="@string/fstname"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="56dp"
-        android:text="@string/lstname"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

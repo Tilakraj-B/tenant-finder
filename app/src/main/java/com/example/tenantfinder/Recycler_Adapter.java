@@ -1,75 +1,91 @@
 package com.example.tenantfinder;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.w3c.dom.Text;
+
 
 import java.util.List;
 
 public class Recycler_Adapter extends RecyclerView.Adapter<Recycler_Adapter.Recycler_viewholder> {
 
-    private Context mycont;
-    private List<Property_modal> property;
+    private final Context mycont;
+    private final List<Property_modal> propertyarraylist;
 
-    public Recycler_Adapter(Context mycont, List<Property_modal> property) {
+    public Recycler_Adapter(Context mycont, List<Property_modal> propertyarraylist) {
         this.mycont = mycont;
-        this.property = property;
+        this.propertyarraylist = propertyarraylist;
     }
+
+
 
     @NonNull
     @Override
     public Recycler_viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(mycont);
         View v = inflater.inflate(R.layout.recycler_property,null);
-        return  new Recycler_viewholder(v);
+
+        return new Recycler_viewholder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull Recycler_viewholder holder, int position) {
-        Property_modal p = property.get(position);
+        Property_modal p = propertyarraylist.get(position);
 
-        holder.tvdeschead.setText(p.getDeschead());
-        holder.tvdesc.setText(p.getDescription());
-        holder.tvaddresshead.setText(p.getAddresshead());
-        holder.tvaddress.setText(p.getAddress());
-        holder.tvcontacthead.setText(p.getContacthead());
-        holder.tvcontactemailhead.setText(p.getEmailhead());
-        holder.tvemail.setText(p.getContact_email());
-        holder.tvcontactphonehead.setText(p.getPhonehead());
-        holder.tvphone.setText(String.valueOf(p.getPhone_no()));
+        holder.nobed.setText(p.getNo_of_bedroom());
+        holder.nohall.setText(p.getNo_of_hall());
+        holder.nokit.setText(p.getNo_of_kitchen());
+        holder.address.setText(p.getAddress());
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("cardview", "cardviewclicked");
+                Intent intent = new Intent(mycont, property_details.class);
+                intent.putExtra("no_of_bedroom", p.getNo_of_bedroom());
+                intent.putExtra("no_of_hall", p.getNo_of_hall());
+                intent.putExtra("no_of_kitchen", p.getNo_of_kitchen());
+                intent.putExtra("description", p.getDescription());
+                intent.putExtra("address",p.getAddress());
+                intent.putExtra("name",p.getName());
+                intent.putExtra("email",p.getEmail());
+                intent.putExtra("phone",p.getPhone());
+                mycont.startActivity(intent);
+
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
 
-        return property.size();
+        return propertyarraylist.size();
     }
 
-    class Recycler_viewholder extends RecyclerView.ViewHolder{
+    public static class Recycler_viewholder extends RecyclerView.ViewHolder{
 
-        TextView tvdeschead, tvaddresshead, tvcontacthead, tvcontactemailhead, tvcontactphonehead,tvdesc, tvaddress, tvemail, tvphone;
-
-
+        TextView address, nobed, nohall, nokit;
+        CardView cardView;
+        TextView description, name, email, phone;
         public Recycler_viewholder(@NonNull View itemView) {
             super(itemView);
 
-            tvdeschead = itemView.findViewById(R.id.descview);
-            tvdesc = itemView.findViewById(R.id.desc);
-            tvaddresshead = itemView.findViewById(R.id.addressview);
-            tvaddress = itemView.findViewById(R.id.address);
-            tvcontacthead = itemView.findViewById(R.id.contact_view);
-            tvcontactemailhead = itemView.findViewById(R.id.contact_email_view);
-            tvemail = itemView.findViewById(R.id.contact_email);
-            tvcontactphonehead = itemView.findViewById(R.id.contact_phone_view);
-            tvphone = itemView.findViewById(R.id.contact_phone);
+            nobed = itemView.findViewById(R.id.noofbed);
+            nohall = itemView.findViewById(R.id.noofhall);
+            nokit = itemView.findViewById(R.id.noofkit);
+            address = itemView.findViewById(R.id.address);
+            cardView = itemView.findViewById(R.id.recyclercardview);
 
+            Log.d("viewholder", "completed");
         }
     }
 }

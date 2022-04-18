@@ -27,8 +27,19 @@
     <string name="eml">Email : </string>
     <string name="phn">Phone No. : </string>
     <string name="fgtpass">Forget Password ?</string>
-    <string name="description">Description : </string>
-    <string name="adrs">Address : </string>
-    <string name="contact_details">Contact Details : </string>
+    <string name="description">Description</string>
+    <string name="adrs">Address</string>
+    <string name="contact_details">Contact Details</string>
     <string name="add_prop">Add Property</string>
+    <string name="size">Size : </string>
+    <string name="ownername">Name : </string>
+    <string name="getlink">Get Link</string>
+    <string name="noofbedroom">No. of Bedroom : </string>
+    <string name="noofhall">No. of Hall : </string>
+    <string name="noofkitchen">No. of Kitchen : </string>
+    <string name="personaldtls">Personal Details</string>
+    <string name="editprfl">Edit Profile</string>
+    <string name="show">show</string>
+    <string name="hide">hide</string>
+    <string name="showpassword">show password</string>
 </resources>
